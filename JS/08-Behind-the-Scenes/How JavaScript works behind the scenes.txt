@@ -1,0 +1,117 @@
+- High level languages have so-called abstractions due to which we don't need to manage resources.
+(Abstraction is a concept that involves simplifying complex systems by focusing on the essential aspects and omitting unnecessary details.)
+
+- Garbage collection takes memory management away from developers.
+
+- Passing a function into another function as an argument: First-class functions.
+
+- In computing, a thread is like a set of instructions that is executed in the computer's CPU.
+Thread is where our code is actually executed in a machine’s processor.
+
+- JavaScript engine contains a call stack and a heap.
+The call stack is where our code is actually executed using something called execution contexts.
+The heap is an unstructured memory pool which stores all the objects that our application needs.
+
+- In interpretation, source code is converted into machine code, but it simply happens right before it's executed and not ahead of time.
+
+- Modern JavaScript use a mix between compilation and interpretation which is called Just-in-time (JIT) compilation.
+
+- JavaScript Runtime is a container including all the things that we need to use JavaScript.
+The heart of JavaScript runtime is always a JavaScript Engine.
+
+- As a piece of JavaScript code enters the engine, the first step is to parse the code which essentially means read the code.
+During the parsing process, the code is parsed into a data structure called the Abstract Syntax Tree (AST).
+This works by first splitting up each line of code into pieces that are meaningful to the language like the const or function keywords, and then saving all the pieces into the tree in a structured way.
+This step also checks if there are any syntax errors and the resulting tree will later be used to generate the machine code. 
+
+- Eventhandler functions are also called as callback functions. 
+As the event happens, for example a click, the callback function will be called.
+As the event happens, the callback function is put into the callback queue and when the call stack is empty, the callback function is passed to the stack so that it can be executed.
+This happens by something called the event loop. 
+The event loop takes callback functions from the callback queue and puts them in the call stack so that they can be executed.
+
+- Execution Context: Environment in which a piece of JavaScript code is executed. Stores all the necessary information for some code to be executed.
+JavaScript code always runs inside an execution context.
+Example: Pizza comes inside a box along with other things like oregano, cutlery. The box is execution context and pizza is the code and oregano is like the information to eat pizza.
+
+- Scope chain consists of references to variables that are located outside of the current function.
+To keep track of scope chain, it is stored in each execution context.
+
+- Execution contexts belonging to arrow functions, do not get their arguments keyword, nor do they get this keyword. 
+Instead, they can use the arguments object, and the this keyword from their closest regular function parent.
+
+- If one scope needs to use a certain variable, but cannot find it in the current scope (in it's own scope), it will look up in the scope chain and see if it can find a variable in one of the parent scopes.
+If it can, it will use that variable.
+And if it can't, then there will be an error.
+This process is called variable lookup.
+
+- For a variable declared with var, block scopes don't apply at all. 
+They are function scoped, not block scoped.
+
+- let and const are block scoped.
+
+- Variables in the global scope are called global variables.
+
+- Scope chain only works upwards, not sideways.
+
+-  Order in which functions are written in the code has nothing to do with order in which functions were called.
+
+- The order in which functions are called does not affect the scope chain at all.
+
+- Scope of a variable is the entire region of the code in which the variable is accessible.
+
+- If a certain variable with same name is in the current scope as well as parent scope, it will use the variable value of the current scope.
+
+- Reassigning outer scope's variable inside the inner scope works and the outer scope variable's value will change to the reassignned value because here we are not creating new variable but just reassignning the parent scope variable's value.
+
+- let and const variables are placed in a Temporal Dead Zone (TDZ) which makes it so that we can't access the variables between the beginning of the scope and the place where the variables are declared.
+
+- If we try to access a variable before it's declared, we will get a ReferenceError: Cannot access 'variable' before initialization which means that the variable is in fact in the TDZ where it is still initialized, but the engine knows that it will eventually be initialized because it already read the code before and set the job variable in the variable environment to uninitialized.
+Then when the execution reaches the line where the vairable is declared, it is removed from the TDZ and it's then safe to use.
+
+-  In order to write clean code, declare variables at the top of each scope.
+
+- Always declare all your functions first and use them only after the declaration (function declaration too).
+
+- Window is the global object of JavaScript in the browser.
+
+- Variables declared with var will create a property on global window object. And that can have some implications in some cases.
+let and const do not create property.
+
+- this keyword in the global scope is simply the window object.
+
+- The arrow function uses the lexical this keyword, which means that it uses the this keyword of its parent scope.
+
+- this keyword will point to the object that is calling the method (example in `script.js`).
+
+- When we try to access a property that doesn't exist on a certain object, we do not get an error, but simply undefined.
+
+- Never use an arrow function as a method. Even if you are not going to use this keyword.
+
+- We cannot use this keyword inside of function which is inside of a method(function) of an object.
+To solve this we can assign this to a variable outside of the function or use arrow function as arrow function will use the this keyword of its parent scope (example in `script.js`).
+
+- Primitive types are stored in execution contexts, in which they are declared.
+Reference types (Objects) are stored in heap.
+
+- JavaScript will create a so-called unique identifier with the variable name.
+Then a piece of memory will be allocated with a certain address, and finally the value will be stored in memory at the specified address.
+
+- The identifier actually points to the address and not to the value itself. (eg. age is equal to the memory address 0001, which holds the value of 30).
+
+- When we declare a variable as an object, an identifier is created, which points to a piece of memory in the stack, which in turn points to a piece of memory in the heap (that is where the object is actually stored). 
+
+- The piece of memory in the call stack has a reference to the piece of memory in the heap.
+
+- It works this way because objects might be too large to be stored in the stack.
+Instead they are stored in the heap, which is like an almost unlimited memory pool. 
+And the stack just keeps a reference to where the object is actually stored in the heap so that it can find it whenever necessary.
+
+- Whenever you think that you're copying an object, you're really just creating a new variable that points to the same object. 
+
+- Object.assign() creates a new object and basically copies all the properties of an existing object to the new object (example in `script.js`).
+
+- Using this technique of Object.assign() only works on the first level.
+If we have an object inside of an object, then this inner object will actually still be the same.
+It will still point to the same place in memory.
+In other words, Object.assign() only creates a shallow copy and not a deep clone (example in `script.js`).

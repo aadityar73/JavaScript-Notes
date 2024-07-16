@@ -1,0 +1,70 @@
+- Destructuring is an ES6 Feature and it's a way of unpacking values from an array or an object into separate variables.
+
+- We need to write exact property name in the place of variables while destructuring objects.
+
+- We can use the spread operator to expand an array into all its elements.
+Unpacking all the array elements at one.
+Whenever we need the elements of an array individually, then we can use the spread operator.
+
+- Spread operator is a bit similar to destructuring, because it also helps us get elements out of arrays.
+The difference is that the spread operator takes all the elements from the array and it also doesn't create new variables.
+We can only use it in places where we would otherwise write values separated by commas.
+
+- Usecases of the spread operator:
+1. Create shallow copies of arrays
+2. Merge two arrays together
+
+- The spread operator works on all so-called iterables.
+
+- Iterables are things like arrays, strings, maps, or sets, but no objects. 
+Basically, most of the built-in data structures in JavaScript except objects.
+
+- We can still only use the spread operator when building an array, or when we pass values into a function.
+
+- Multiple values separated by a comma are usually only expected when we pass arguments into a function, or when we build a new array.
+
+- We can use backslash(\) to use single quote(') 
+(example: 'Let\'s make pasta' )
+
+- Since ES2018, Spread operator works on objects even though objects are not iterables.
+
+- Rest is opposite of spread operator.
+Rest is to pack elements into an array.
+
+- It's called REST because it will take rest of the elements (the remaining elements of the array) and then put them into a new array.
+
+- Rest Pattern collects the elements that are unused in the destructuring assignment.
+
+- Rest syntax collects all the array elements after the last variable.
+It does not include any skipped elements.
+
+- Rest element must be the last element.
+
+- There can only ever be one rest in any destructuring assignment.
+
+- Rest Parameter serves to collect all of the remaining unused parameters that were not used.
+
+- Spread Operator is used where we would otherwise write values, separated by a comma.
+- The Rest Pattern is used where we would otherwise write variable names separated by commas.
+
+- Spread eka array madhun brackets kadhun taakta ani multiple values na arrays madhun unpack karayla use karu shakto taaki te individual elements bantil ani array madhun baher yetil.
+- Rest multiple values la array madhe takto ani multiple variable names lihnyacha jaagi use karu shakto.
+
+- Maybe function call krtana spread operator ani function lihitana, parameters mdhe rest (MAYBE)
+
+- 3 Properties about Logical Operators:
+1) They can use any data type
+2) They can return any data type
+3) They do something called short-circuiting (short circuit evaluation)
+
+- 5 falsy values: 0, '', undefined, null, NaN
+
+- In the case of OR Operator, short circuiting means that if the first value is a truthy value, it will immediately return that first value, the other operand will not even be evaluated.
+
+- In the case of AND Operator, it short circuits when the first value is falsy and immediately returns that falsy value without even evaluating the other operands.
+When it is truthy, the evaluation continues and then the last truthy value is returned.
+
+- For practical applications, we can use the OR operator to set default values, and we can use the AND operator to execute code in the second operand if the first one is true.
+
+- Nullish values: null and undefined (NOT 0 or '')
+- ?? operator returns the first truthy value which it finds just like || operator.
